@@ -1,0 +1,226 @@
+/* src/PodcastStreamPage.css */
+
+.stream-container {
+  padding: 2rem;
+  max-width: 900px;
+  margin: 2rem auto;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.stream-container h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+/* --- Viewer --- */
+.stream-placeholder {
+  background-color: #f4f4f5;
+  border: 1px solid #e4e4e7;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  margin-top: 1.5rem;
+  padding: 2rem;
+  text-align: center;
+}
+
+.stream-placeholder span {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.stream-placeholder h3 {
+  color: #333;
+}
+
+.stream-placeholder p {
+  color: #71717a;
+  font-size: 1rem;
+}
+
+.stream-player {
+  margin-top: 1.5rem;
+  background-color: #000;
+  border-radius: 8px;
+  overflow: hidden; /* ทำให้ขอบ iframe มนตาม */
+}
+
+.stream-player iframe {
+  display: block; /* ลบขอบล่างของ iframe */
+  border: none;
+  width: 100%;
+  aspect-ratio: 16 / 9; /* ทำให้เป็น 16:9 */
+}
+
+/* --- Admin Panel --- */
+.admin-panel {
+  background-color: #fafafa;
+  border: 1px solid #e4e4e7;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.admin-panel h3 {
+  margin-top: 0;
+  color: #18181b;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: #3f3f46;
+}
+
+.form-group input[type="text"] {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #d4d4d8;
+  border-radius: 4px;
+  box-sizing: border-box; 
+}
+
+.form-group small {
+  color: #71717a;
+  margin-top: 0.25rem;
+  display: block;
+}
+
+.form-group-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.form-group-toggle label {
+  font-weight: 500;
+  color: #18181b;
+  cursor: pointer;
+}
+
+.form-group-toggle input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.btn-submit {
+  background-color: #007bff;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-submit:hover {
+  background-color: #0056b3;
+}
+
+.btn-submit:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.error-message {
+  color: #dc2626;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+/* src/PodcastStreamPage.css (เพิ่มต่อท้าย) */
+
+.stream-type-selector {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  background-color: #f4f4f5;
+  padding: 1rem;
+  border-radius: 6px;
+}
+
+.stream-type-selector label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.stream-type-selector input[type="radio"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+/* ปรับแต่ง iframe ของ Jitsi 
+  (สำคัญมาก: Jitsi ต้องการ allow camera/microphone)
+*/
+.stream-player iframe {
+  /* ... สไตล์เดิม (aspect-ratio: 16/9; etc) ... */
+  
+  /* หมายเหตุ: เราได้เพิ่ม allow="camera; microphone; ..." 
+    ใน <iframe> ของ StreamViewer component แล้ว
+    เพื่อให้ Jitsi ทำงานได้
+  */
+}
+/* ... (CSS เดิมของคุณ) ... */
+
+/* เพิ่มต่อท้ายใน src/PodcastStreamPage.css */
+
+.broadcast-controls {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.broadcast-controls button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.broadcast-controls button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.btn-start-stream {
+  background-color: #007bff;
+  color: white;
+}
+.btn-start-stream:not(:disabled):hover {
+  background-color: #0056b3;
+}
+
+.btn-stop-stream {
+  background-color: #dc3545;
+  color: white;
+}
+.btn-stop-stream:not(:disabled):hover {
+  background-color: #c82333;
+}
+
+/* (สไตล์สำหรับวิดีโอ preview) */
+.webrtc-broadcaster video {
+  border-radius: 8px;
+  max-height: 400px; /* จำกัดความสูงของ preview */
+}

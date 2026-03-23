@@ -1,0 +1,187 @@
+/* src/JournalPage.css */
+
+.journal-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  width: 90%;
+  max-width: 1200px;
+  margin: 2rem auto;
+}
+
+/* --- 1. การ์ดฟอร์ม (ด้านซ้าย) --- */
+.journal-form-card {
+  flex: 1; /* 💡 ขยาย */
+  min-width: 350px;
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  align-self: flex-start; /* 💡 ยึดไว้ด้านบน */
+}
+
+.journal-form-card h2 {
+  margin-top: 0;
+  text-align: center;
+}
+
+.journal-form-card .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.journal-form-card label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.journal-form-card input[type="date"],
+.journal-form-card textarea {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+/* --- 💡 Mood Selector (ปุ่ม Emoji) --- */
+.mood-selector {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.mood-btn {
+  flex: 1;
+  font-size: 2rem;
+  padding: 0.5rem;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.mood-btn:hover {
+  background-color: #eee;
+  transform: scale(1.1);
+}
+
+/* 💡 ปุ่มที่ถูกเลือก */
+.mood-btn.selected {
+  border-color: #007bff;
+  background-color: #e6f2ff;
+  transform: scale(1.1);
+}
+
+/* --- 2. รายการ (ด้านขวา) --- */
+.journal-list {
+  flex: 1.5; /* 💡 ขยาย (ใหญ่กว่า) */
+  min-width: 350px;
+}
+
+.journal-list h3 {
+  border-bottom: 2px solid #eee;
+  padding-bottom: 0.5rem;
+}
+
+.journal-entry-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background-color: #fff;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  transition: box-shadow 0.2s;
+}
+
+.journal-entry-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.entry-mood {
+  font-size: 2.5rem;
+  background-color: #f0f0f0;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.entry-content {
+  flex: 1;
+}
+
+.entry-date {
+  font-weight: 700;
+}
+
+.entry-text-preview {
+  margin: 0.25rem 0 0;
+  color: #555;
+  /* 💡 ตัดข้อความที่ยาวเกิน */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+/* ... (โค้ด CSS เดิมของคุณทั้งหมด) ... */
+
+
+/* --- 💡 CSS ใหม่สำหรับ "สรุปรายเดือน" --- */
+
+.journal-summary-card {
+  width: 100%;
+  background-color: #fdfdfd;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  margin-bottom: 2rem;
+  box-sizing: border-box;
+}
+
+.summary-list {
+  list-style-type: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.summary-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+  border-bottom: 1px dashed #ddd;
+}
+
+.summary-list li:last-child {
+  border-bottom: none;
+}
+
+.summary-month {
+  font-weight: 600;
+  flex-basis: 30%;
+}
+
+.summary-mood {
+  font-size: 1.5rem;
+  flex-basis: 15%;
+  text-align: center;
+}
+
+.summary-detail {
+  font-size: 0.9rem;
+  color: #666;
+  flex-basis: 40%;
+  text-align: right;
+}
+
+.no-data {
+  color: #888;
+  font-style: italic;
+}

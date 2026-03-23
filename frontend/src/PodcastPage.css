@@ -1,0 +1,507 @@
+.podcast-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.podcast-container h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+/* --- Admin Form Styles --- */
+.toggle-form-btn {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.admin-podcast-form {
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.admin-podcast-form h3 {
+  margin-top: 0;
+}
+
+.admin-podcast-form .input-group {
+  margin-bottom: 1rem;
+}
+
+.admin-podcast-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.admin-podcast-form input[type="text"],
+.admin-podcast-form textarea,
+.admin-podcast-form select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box; /* Important */
+}
+
+.admin-podcast-form .submit-btn {
+  background-color: #28a745;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+/* --- Podcast Grid Styles --- */
+.podcast-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.podcast-card {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  text-decoration: none;
+  color: #333;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.podcast-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.podcast-thumbnail {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  display: block;
+}
+
+.podcast-info {
+  padding: 1rem;
+}
+
+.podcast-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin: 0 0 0.5rem 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.podcast-description {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 0.75rem;
+}
+
+.podcast-type {
+  font-size: 0.8rem;
+  padding: 3px 8px;
+  border-radius: 4px;
+  color: white;
+}
+.podcast-type.youtube {
+  background-color: #ff0000;
+}
+.podcast-type.upload {
+  background-color: #007bff;
+}
+/* --- เพิ่มโค้ดนี้ --- */
+.podcast-card {
+  position: relative; /* ทำให้ปุ่มลบอ้างอิงตำแหน่งได้ */
+}
+
+.delete-podcast-btn {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  background-color: #dc3545; /* สีแดง */
+  color: white;
+  border: none;
+  border-radius: 50%; /* วงกลม */
+  width: 30px;
+  height: 30px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  padding: 0;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+.delete-podcast-btn:hover {
+  background-color: #c82333; /* สีแดงเข้ม */
+}
+/* --- 💡 เพิ่มสไตล์สำหรับปุ่มแก้ไข --- */
+.edit-podcast-btn {
+  position: absolute;
+  top: 10px;
+  right: 48px; /* 💡 วางไว้ข้างๆ ปุ่มลบ */
+  background-color: #007bff; /* สีน้ำเงิน */
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  padding: 0;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+.edit-podcast-btn:hover {
+  background-color: #0056b3; /* สีน้ำเงินเข้ม */
+}
+
+/* --- 💡 เพิ่มสไตล์สำหรับปุ่มยกเลิกในฟอร์ม --- */
+.admin-podcast-form .cancel-btn {
+  background-color: #6c757d; /* สีเทา */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-left: 10px; /* 💡 เว้นระยะห่างจากปุ่ม submit */
+}
+
+.admin-podcast-form .cancel-btn:hover {
+  background-color: #5a6268;
+}
+/* ... (CSS ของเดิม) ... */
+
+.podcast-type {
+  /* ... (ของเดิม) ... */
+  background-color: #ccc;
+  color: #333;
+}
+
+.podcast-type.youtube {
+  background-color: #ff0000;
+  color: white;
+}
+
+.podcast-type.upload {
+  background-color: #007bff;
+  color: white;
+}
+
+/* 💡 CSS ที่เพิ่มใหม่ */
+.podcast-type.external {
+  background-color: #1DB954; /* สีเขียว Spotify */
+  color: white;
+}
+/* --- General Container --- */
+.podcast-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 1rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.podcast-container h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+/* --- Toggle Form Button --- */
+.toggle-form-btn {
+  display: block;
+  margin: 0 auto 2rem auto;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  background-color: #007bff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.toggle-form-btn:hover {
+  background-color: #0056b3;
+}
+
+/* --- Podcast Form Styling --- */
+.podcast-form {
+  background-color: #f9f9f9;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  margin-bottom: 2rem;
+  border: 1px solid #e0e0e0;
+}
+
+.podcast-form h3 {
+  margin-top: 0;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #555;
+}
+
+.form-group input[type="text"],
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box; /* 💡 สำคัญมาก */
+}
+
+.form-group textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+/* --- 💡 Form Action Buttons (Create/Cancel) --- */
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem; /* 💡 เพิ่มช่องว่างระหว่างปุ่ม */
+  margin-top: 1.5rem;
+}
+
+/* 💡 สไตล์ปุ่มแบบทั่วไป */
+.form-actions button {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.form-actions button:hover {
+  opacity: 0.85;
+}
+
+/* 💡 1. ปุ่ม "สร้าง" (สีเขียว) */
+.btn-submit {
+  background-color: #28a745; /* สีเขียว */
+}
+
+/* 💡 2. ปุ่ม "ยกเลิก" (สีแดง) */
+.btn-cancel {
+  background-color: #dc3545; /* สีแดง */
+}
+
+
+/* --- 💡 Podcast Grid Layout --- */
+.podcast-grid {
+  display: grid;
+  /* อธิบาย: 
+    - grid-template-columns: สร้างคอลัมน์
+    - repeat(auto-fill, ...): สร้างคอลัมน์ซ้ำๆ ให้เต็มพื้นที่
+    - minmax(300px, 1fr): แต่ละคอลัมน์ กว้างอย่างน้อย 300px 
+                         และขยายได้เท่าๆ กัน (1fr)
+  */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem; /* 💡 ช่องว่างระหว่างการ์ด */
+}
+
+/* --- 💡 Podcast Card Styling --- */
+.podcast-card {
+  text-decoration: none;
+  color: #333;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* 💡 ซ่อนขอบรูปที่ล้นออกมา */
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  position: relative; /* 💡 สำหรับปุ่ม Edit/Delete */
+}
+
+.podcast-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.podcast-thumbnail {
+  width: 100%;
+  height: 200px; /* 💡 กำหนดความสูงของรูป */
+  object-fit: cover; /* 💡 ให้รูปเต็มพื้นที่โดยไม่เสียสัดส่วน */
+  border-bottom: 1px solid #eee;
+}
+
+.podcast-info {
+  padding: 1rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* 💡 ทำให้ส่วนนี้ขยายเต็มพื้นที่ที่เหลือ */
+}
+
+.podcast-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+  /* 💡 กันข้อความยาวเกิน */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.podcast-description {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0;
+  flex-grow: 1; /* 💡 ดันป้าย Tag ลงไปล่างสุด */
+  line-height: 1.4;
+}
+
+/* --- Podcast Type Tag --- */
+.podcast-type {
+  display: inline-block;
+  align-self: flex-start; /* 💡 ให้ป้ายอยู่ซ้าย */
+  margin-top: 1rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.podcast-type.youtube {
+  background-color: #ffebee;
+  color: #c62828;
+}
+
+.podcast-type.upload {
+  background-color: #e3f2fd;
+  color: #1565c0;
+}
+
+.podcast-type.external {
+  background-color: #e8f5e9; /* สีเขียวอ่อน */
+  color: #2e7d32; /* สีเขียวเข้ม */
+}
+
+/* --- Admin Edit/Delete Buttons on Card --- */
+.edit-podcast-btn,
+.delete-podcast-btn {
+  position: absolute;
+  top: 10px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.edit-podcast-btn:hover,
+.delete-podcast-btn:hover {
+  opacity: 1;
+}
+
+.edit-podcast-btn {
+  right: 50px;
+  background-color: #007bff; /* สีน้ำเงิน */
+}
+
+.delete-podcast-btn {
+  right: 10px;
+  background-color: #dc3545; /* สีแดง */
+}
+
+/* --- Error Messages --- */
+.error-message {
+  color: #dc3545;
+  background-color: #fbebee;
+  border: 1px solid #dc3545;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+/* ... (โค้ด CSS เดิมของคุณทั้งหมด) ... */
+
+
+/* --- 💡 CSS ใหม่สำหรับ Pagination (Load More) --- */
+
+.pagination-controls {
+  text-align: center;
+  margin-top: 2.5rem; /* เว้นระยะห่างจาก Grid */
+}
+
+.load-more-btn {
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  background-color: #007bff; /* สีน้ำเงิน (เหมือนปุ่ม "เพิ่ม") */
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.load-more-btn:hover {
+  background-color: #0056b3;
+}
+
+/* 💡 สไตล์ปุ่มตอนที่กำลังโหลด */
+.load-more-btn:disabled {
+  background-color: #aaa;
+  cursor: not-allowed;
+}
+
+/* 💡 ข้อความ "สิ้นสุดรายการ" */
+.end-of-list {
+  color: #888;
+  font-size: 0.9rem;
+  margin-top: 2rem;
+}
+/* --- สิ้นสุดส่วนที่เพิ่ม --- */

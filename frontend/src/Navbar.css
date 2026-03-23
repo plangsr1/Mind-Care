@@ -1,0 +1,156 @@
+/* src/Navbar.css */
+
+.navbar {
+  /* 1. ให้แถบ Navbar เป็นสีขาวและเต็มความกว้าง */
+  width: 100%; 
+  background-color: #ffffff;
+  border-bottom: 1px solid #dee2e6;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  padding: 0.75rem 0; /* ปรับ Padding บน-ล่าง */
+}
+
+/* 2. สร้าง container ภายใน Navbar เพื่อจัดกึ่งกลางเนื้อหา */
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+  /* 1. ลบ max-width และ margin: auto ออกไป */
+  /* max-width: 1200px; */ 
+  /* margin: 0 auto; */
+  
+  /* 2. เพิ่ม 3 บรรทัดนี้ */
+  width: 100%;
+  padding: 0 2rem; /* 💡 (สำคัญ) เพิ่ม padding ซ้าย-ขวา เพื่อไม่ให้เนื้อหาชิดขอบจอ */
+  box-sizing: border-box; /* 💡 (สำคัญ) เพื่อให้ padding ทำงานถูกต้อง */
+}
+
+.navbar-brand a {
+  font-size: 1.75rem; /* ขยายขนาดโลโก้ */
+  font-weight: 700; /* หนาขึ้น */
+  color: #007bff; /* (ตัวอย่าง) ใส่สีน้ำเงินให้แบรนด์ */
+  text-decoration: none;
+}
+
+.navbar-links {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-links li {
+  margin-left: 24px; /* เพิ่มระยะห่างระหว่างปุ่ม */
+}
+
+.navbar-links a {
+  text-decoration: none;
+  color: #555;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.navbar-links a:hover {
+  background-color: #f0f0f0;
+  color: #0056b3;
+}
+/* ... (โค้ด Navbar.css เดิมของคุณ) ... */
+
+/* สไตล์สำหรับปุ่มที่เป็น Link (เช่น Login) */
+.navbar-button {
+  background-color: #398fff;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.navbar-button:hover {
+  background-color: #1c7eff;
+  color: white; /* ต้องมี ไม่งั้นสีเพี้ยน */
+}
+
+/* สไตล์สำหรับปุ่ม Logout (ที่เป็น <button>) */
+.logout-button {
+  background-color: #dc3545; /* สีแดง */
+  border: none;
+  font-family: inherit;
+  font-size: 1rem; /* ทำให้ขนาดฟอนต์เท่ากับ Link อื่นๆ */
+  cursor: pointer;
+}
+
+.logout-button:hover {
+  background-color: #c82333;
+}
+@media print {
+  .navbar {
+    display: none;
+  }
+}
+/* === Dropdown Styles === */
+
+/* ทำให้ตัวครอบ dropdown (li) เป็นตัวกำหนดตำแหน่ง */
+.navbar-links .dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* ซ่อนเมนูย่อยไว้ก่อน */
+.navbar-links .dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9; 
+  min-width: 200px; 
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 100;
+  border-radius: 4px; 
+  padding: 13px 0 8px 0; /* 💡 1. แก้ไข: เพิ่มช่องว่าง 5px เข้าไปที่ด้านบนสุด */
+  list-style: none; 
+  margin-top: 0;         /* 💡 2. แก้ไข: ลบช่องว่างตัวปัญหาทิ้ง */
+}
+
+/* ลิงก์ภายในเมนูย่อย */
+.navbar-links .dropdown-menu li {
+  display: block; /* ให้แสดงผลเต็มบรรทัด */
+  width: 100%;
+}
+
+.navbar-links .dropdown-menu li a {
+  color: #1c7eff; /* สีลิงก์ในเมนูย่อย */
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  box-sizing: border-box; /* ทำให้ padding ไม่ล้น */
+}
+
+/* ทำให้ลิงก์ในเมนูย่อยเปลี่ยนสีเมื่อ hover */
+.navbar-links .dropdown-menu li a:hover {
+  background-color: #ddd; /* สีพื้นหลังเมื่อชี้ */
+}
+
+/* แสดงเมนูย่อยออกมาเมื่อชี้ที่ .dropdown */
+.navbar-links .dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* สไตล์สำหรับตัวคลิกเปิด Dropdown (ถ้าต้องการให้เหมือนลิงก์อื่น) */
+.navbar-links .dropdown-toggle {
+  color: #1c7eff; /* หรือสีลิงก์หลักของคุณ */
+  padding: 14px 16px;
+  text-decoration: none;
+  display: block;
+  cursor: pointer; /* ทำให้เมาส์เป็นรูปมือ */
+}
+
+/* เพิ่มลูกศรชี้ลง (optional) */
+.navbar-links .dropdown-toggle::after {
+  content: ' ▼';
+  font-size: 0.7em;
+  margin-left: 5px;
+}

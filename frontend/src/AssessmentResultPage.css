@@ -1,0 +1,68 @@
+/* src/AssessmentResultPage.css */
+
+.result-container {
+  width: 90%;
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.result-card {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-top: 1rem;
+}
+
+.result-card p {
+  font-size: 0.9rem;
+  color: #777;
+  margin-top: 0;
+}
+
+.result-score {
+  font-size: 4rem;
+  font-weight: 700;
+  color: #007bff;
+  margin: 1rem 0;
+}
+
+.result-interpretation {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.result-recommendation {
+  margin-top: 2rem;
+  text-align: left;
+  background-color: #fdfaea;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #f0e68c;
+}
+
+.disclaimer {
+  font-size: 0.8rem;
+  color: #888;
+  margin-top: 2rem;
+  font-style: italic;
+}
+
+.back-button {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  color: #007bff;
+  background-color: transparent;
+  border: 2px solid #007bff;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+}

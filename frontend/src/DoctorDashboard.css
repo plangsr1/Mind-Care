@@ -1,0 +1,52 @@
+.doctor-dashboard-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.notification-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 1.5rem;
+}
+
+.notification-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.notification-item:last-child {
+  border-bottom: none;
+}
+
+.notification-content p {
+  margin: 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+.notification-time {
+  font-size: 0.8rem;
+  color: #888;
+  margin-top: 4px;
+}
+
+.mark-read-btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.mark-read-btn:hover {
+  background-color: #0056b3;
+}

@@ -1,0 +1,115 @@
+/* src/AssessmentPage.css */
+
+.assessment-container {
+  width: 90%;
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.assessment-container h1 {
+  text-align: center;
+}
+
+/* --- Assessment List Page --- */
+
+.assessment-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.assessment-card {
+  text-decoration: none;
+  color: inherit;
+  padding: 1.5rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.assessment-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.assessment-card h3 {
+  margin-top: 0;
+}
+
+.start-btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  background-color: #007bff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* --- Assessment Page (Questions) --- */
+
+.assessment-intro {
+  font-style: italic;
+  color: #555;
+  background-color: #f9f9f9;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.question-block {
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #eee;
+}
+
+.question-text {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.options-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.radio-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.radio-label input[type="radio"] {
+  width: 1.2em;
+  height: 1.2em;
+}
+
+.submit-btn {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: white;
+  background-color: #28a745;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 2rem;
+}
+
+.submit-btn:disabled {
+  background-color: #aaa;
+}

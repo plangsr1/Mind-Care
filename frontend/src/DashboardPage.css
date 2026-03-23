@@ -1,0 +1,256 @@
+/* src/DashboardPage.css */
+.dashboard-container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #f4f7f6;
+}
+
+h1 {
+  color: #333;
+}
+
+/* 1. ส่วนสถิติแบบการ์ด (MRS/TPS) */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  transition: transform 0.2s;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+.stat-card h3 {
+  margin-top: 0;
+  font-size: 1.1rem;
+  color: #555;
+  font-weight: 600;
+}
+
+.stat-card p {
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #1a73e8; /* สีน้ำเงิน */
+  margin-bottom: 0;
+}
+
+/* 2. ส่วนกราฟ */
+.charts-section {
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.chart-wrapper {
+  margin-bottom: 2.5rem;
+  max-height: 400px; /* จำกัดความสูงกราฟ */
+}
+
+.chart-wrapper h3 {
+    color: #444;
+}
+
+.error-message {
+  color: red;
+  padding: 1rem;
+  background: #ffebee;
+  border-radius: 8px;
+}
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.print-button {
+  background-color: #007bff; /* สีน้ำเงิน */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 0.75rem 1.25rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.print-button:hover {
+  background-color: #0056b3;
+}
+@media print {
+  
+  /* 1. ซ่อนปุ่มพิมพ์ (ไม่ให้ปุ่มพิมพ์ติดในกระดาษ) */
+  .print-button {
+    display: none;
+  }
+
+  /* 2. จัด Layout หลัก */
+  .dashboard-container {
+    padding: 0;
+    box-shadow: none;
+    max-width: 100%;
+    background-color: #ffffff;
+  }
+  
+  .dashboard-header {
+     margin-bottom: 1rem;
+  }
+  
+  .dashboard-header h1 {
+     color: #000;
+  }
+
+  /* 3. จัดการการ์ดสถิติ (ให้พิมพ์สวยขึ้น) */
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr); /* บีบให้เป็น 2 คอลัมน์พอดีหน้า A4 */
+    gap: 1rem;
+  }
+  
+  .stat-card {
+     box-shadow: none;
+     border: 1px solid #ddd; /* ใช้เส้นขอบแทนเงา */
+  }
+  
+  .stat-card p {
+     color: #000; /* บังคับสีดำ */
+  }
+
+  /* 4. จัดการกราฟ */
+  .charts-section {
+    box-shadow: none;
+    padding: 0;
+  }
+  
+  .chart-wrapper {
+     max-height: none; /* ปล่อยความสูงตามจริง */
+     page-break-inside: avoid; /* ⭐️ พยายามไม่ให้กราฟโดนตัดครึ่งหน้า */
+     padding-top: 1rem;
+  }
+  
+  /* บังคับให้ Chart.js ปรับขนาดให้พอดี (สำคัญ!) */
+  canvas {
+     max-width: 100% !important; 
+     height: auto !important;
+  }
+}
+.date-filter-controls {
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  margin-bottom: 2rem;
+  display: flex;
+  flex-wrap: wrap; /* ให้ขึ้นบรรทัดใหม่ในจอมือถือ */
+  gap: 1.5rem;
+  align-items: flex-end;
+}
+.date-filter-controls .input-group {
+  flex: 1; /* ให้ input ขยายเต็ม */
+  min-width: 200px;
+}
+.date-filter-controls label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #555;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+.date-filter-controls input[type="date"] {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+.filter-button {
+  background-color: #28a745; /* สีเขียว */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  height: fit-content; /* ให้ความสูงพอดี */
+}
+.filter-button:hover {
+  background-color: #218838;
+}
+.filter-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* 💡 --- สไตล์การ์ดสถิติแบบใหม่ --- 💡 */
+.stats-grid {
+  /* ... (สไตล์เดิม) ... */
+}
+.stat-card {
+  /* ... (สไตล์เดิม) ... */
+  position: relative;
+  padding-bottom: 3rem; /* เพิ่มพื้นที่ให้ตัวเลขเปรียบเทียบ */
+}
+.stat-card p {
+  /* ... (สไตล์เดิม) ... */
+}
+.comparison-value {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+/* ... (สไตล์ .charts-section, .chart-wrapper) ... */
+
+
+/* 💡 --- ⭐️ ส่วนของรายงานทางการ (สำหรับพิมพ์) ⭐️ --- 💡 */
+.report-header-print {
+  display: none; /* 1. ซ่อนในจอปกติ */
+  text-align: center;
+  border-bottom: 2px solid #000;
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+}
+
+@media print {
+  /* ... (สไตล์ @media print เดิมที่ซ่อน .print-button และ .navbar) ... */
+
+  /* 2. แสดงหัวรายงานทางการ */
+  .report-header-print {
+    display: block; 
+  }
+  
+  /* 3. ซ่อนฟอร์มกรองวันที่ (ไม่จำเป็นในรายงาน) */
+  .date-filter-controls {
+    display: none;
+  }
+  
+  .dashboard-header h1 {
+    display: none; /* ซ่อน h1 "Dashboard" ปกติ */
+  }
+
+  .stat-card {
+    /* ... (สไตล์ @media print เดิม) ... */
+     padding-bottom: 1.5rem; /* ลด padding ตอนพิมพ์ */
+  }
+
+  .comparison-value {
+     position: static; /* ให้มันต่อท้าย p ปกติ */
+     margin-top: 0.5rem;
+     display: block;
+  }
+}

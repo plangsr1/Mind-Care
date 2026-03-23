@@ -1,0 +1,369 @@
+/* src/ConsultPage.css */
+
+.consult-container {
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+.consult-container h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+/* --- 1. Disclaimer Box (สำคัญมาก) --- */
+.disclaimer-box {
+  background-color: #fff8e1; /* สีเหลืองอ่อน */
+  border: 1px solid #ffe57f;
+  border-left: 5px solid #ffc107; /* สีเหลืองเข้ม */
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  border-radius: 8px;
+}
+
+.disclaimer-box h3 {
+  margin-top: 0;
+  color: #c79100;
+}
+
+.disclaimer-box p {
+  line-height: 1.6;
+}
+
+.disclaimer-box .emergency {
+  font-weight: bold;
+  color: #d32f2f; /* สีแดง */
+  margin-top: 1rem;
+}
+
+/* --- 2. My Appointments --- */
+.my-appointments {
+  background: #f9f9f9;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+.my-appointments h3 {
+  margin-top: 0;
+}
+.appointments-list {
+  list-style-type: none;
+  padding: 0;
+}
+.appointments-list li {
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 1rem;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+.appointments-list li.appt-status-pending span {
+  font-weight: bold;
+  color: #ffa000; /* สีส้ม */
+}
+.appointments-list li.appt-status-confirmed span {
+  font-weight: bold;
+  color: #388e3c; /* สีเขียว */
+}
+
+/* --- 3. Specialist List --- */
+.specialists-list h3 {
+  border-bottom: 2px solid #eee;
+  padding-bottom: 10px;
+  margin-bottom: 1.5rem;
+}
+
+.specialist-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.specialist-card {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+}
+
+.specialist-photo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 1rem auto;
+  border: 3px solid #f0f0f0;
+}
+
+.specialist-card h4 {
+  margin: 0 0 5px 0;
+  text-align: center;
+  color: #0056b3;
+}
+.specialist-card .spec-title {
+  margin: 0 0 10px 0;
+  text-align: center;
+  font-style: italic;
+  color: #555;
+  font-size: 0.9rem;
+}
+.specialist-card .spec-specialty {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+.specialist-card .spec-desc {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.5;
+  flex-grow: 1; /* ทำให้การ์ดสูงเท่ากัน */
+  margin-bottom: 1rem;
+}
+
+.book-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  width: 100%;
+}
+.book-btn:hover {
+  background-color: #0056b3;
+}
+.login-prompt {
+  font-size: 0.9rem;
+  text-align: center;
+  color: #777;
+}
+
+/* --- 4. Booking Modal --- */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.modal-content h3 {
+  margin-top: 0;
+}
+/* (ใช้ .input-group จาก AuthForm.css ซ้ำได้) */
+.modal-content .input-group {
+  margin-bottom: 1rem;
+}
+.modal-content label {
+  display: block;
+  margin-bottom: 5px;
+}
+.modal-content input[type="datetime-local"],
+.modal-content textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.modal-content textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 1.5rem;
+}
+
+.modal-actions .cancel-btn {
+  background: #6c757d;
+  color: white;
+}
+.modal-actions .submit-btn {
+  background: #007bff;
+  color: white;
+}
+.modal-actions button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+/* --- เพิ่ม 4 คลาสนี้เข้าไปใน ConsultPage.css --- */
+
+.appt-status span {
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.status-pending {
+  color: #856404;
+  background-color: #fff3cd;
+}
+
+.status-confirmed {
+  color: #004085;
+  background-color: #cce5ff;
+}
+
+.status-paid {
+  color: #155724;
+  background-color: #d4edda;
+}
+
+.status-cancelled {
+  color: #721c24;
+  background-color: #f8d7da;
+}
+
+.pay-btn {
+  margin-left: 10px;
+  padding: 4px 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #28a745;
+  color: white;
+  cursor: pointer;
+}
+.pay-btn:hover {
+  background-color: #218838;
+}
+/* ... (โค้ด CSS เดิมของคุณทั้งหมด) ... */
+
+
+/* --- 💡 CSS ใหม่สำหรับ "การนัดหมายของฉัน" --- */
+
+.my-appointments {
+  width: 100%;
+  margin-bottom: 3rem;
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e0e0e0;
+}
+
+.my-appointments h2 {
+  margin-top: 0;
+  text-align: center;
+}
+
+/* 💡 ใช้สไตล์ตารางเหมือนหน้า Admin */
+.appointments-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.appointments-table th,
+.appointments-table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.appointments-table th {
+  background-color: #f4f4f4;
+}
+
+/* 💡 ป้าย Status */
+.status-tag {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: #333;
+}
+.status-tag.status-pending {
+  background-color: #fffbeb;
+  color: #b45309;
+}
+.status-tag.status-confirmed {
+  background-color: #f0fdf4;
+  color: #166534;
+}
+.status-tag.status-cancelled {
+  background-color: #fef2f2;
+  color: #991b1b;
+}
+.status-tag.status-paid {
+  background-color: #f0fdf4;
+  color: #166534;
+}
+
+/* 💡 ปุ่ม Chat (สีเขียว) */
+.chat-button {
+  display: inline-block;
+  padding: 6px 12px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #fff;
+  background-color: #28a745;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.2s;
+  text-align: center;
+}
+.chat-button:hover {
+  background-color: #218838;
+}
+
+/* 💡 ปุ่ม Payment (สีน้ำเงิน) */
+.payment-button {
+  display: inline-block;
+  padding: 6px 12px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #fff;
+  background-color: #007bff;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.2s;
+  text-align: center;
+}
+.payment-button:hover {
+  background-color: #0056b3;
+}
+
+/* --- ส่วนหัวของ "เลือกผู้เชี่ยวชาญ" --- */
+.specialist-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 1rem;
+}
+.specialist-header h2 {
+  margin: 0;
+}
+.specialist-header p {
+  margin: 0;
+  font-size: 0.9rem;
+}

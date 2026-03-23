@@ -1,0 +1,128 @@
+/* src/AIChat.css */
+
+/* Import ฟอนต์ที่อ่านง่ายและทันสมัย */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600&display=swap');
+
+.chat-container {
+  /* 1. ทำให้กล่องแชทเต็มหน้าจอ (ใต้ Navbar) */
+  width: 100%;
+  margin: 0;
+  padding: 1.5rem 2rem; /* เพิ่ม padding ซ้าย-ขวา */
+  background-color: #ffffff;
+  border-radius: 0; /* ไม่มีขอบโค้ง */
+  box-shadow: none; /* ไม่มีเงา */
+  display: flex;
+  flex-direction: column;
+  /* 2. ปรับความสูงให้เต็มพื้นที่ที่เหลือ */
+  height: calc(100vh - 75px); /* สมมติว่า Navbar สูงประมาณ 75px */
+}
+
+.chat-container h2, .chat-container p, .chat-input-form input, .chat-input-form button {
+  /* 3. กำหนดฟอนต์หลักให้กับทุกส่วน */
+  font-family: 'IBM Plex Sans Thai', sans-serif;
+}
+
+.chat-container h2 {
+  /* เปลี่ยนกลับเป็นจัดกึ่งกลาง */
+  text-align: center;
+  color: #212529; /* สีเข้มขึ้น */
+  margin-top: 0;
+  font-weight: 600;
+}
+.chat-container p {
+  /* เปลี่ยนกลับเป็นจัดกึ่งกลาง */
+  text-align: center;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.chat-window {
+  flex-grow: 1; /* ทำให้หน้าต่างแชทยืดเต็มพื้นที่ที่เหลือ */
+  overflow-y: auto; 
+  border: none; /* ไม่มีเส้นขอบ */
+  border-radius: 12px; /* เพิ่มความโค้งมนให้หน้าต่างแชท */
+  padding: 2rem; /* เพิ่มระยะห่างภายใน */
+  margin-bottom: 1rem;
+  background-color: #ffffff; /* เปลี่ยนพื้นหลังเป็นสีขาว */
+  display: flex;
+  flex-direction: column;
+}
+
+.message {
+  margin-bottom: 1rem;
+  padding: 1rem 1.5rem; /* เพิ่ม padding ให้ข้อความโปร่งขึ้น */
+  border-radius: 20px;
+  max-width: 75%;
+  word-wrap: break-word;
+  /* 4. ปรับฟอนต์และระยะห่างบรรทัดให้อ่านง่ายขึ้นมาก */
+  font-family: 'IBM Plex Sans Thai', sans-serif;
+  font-size: 1.1rem; /* เพิ่มขนาดฟอนต์ */
+  line-height: 1.7; /* เพิ่มความสูงบรรทัด */
+}
+
+.message.user {
+  /* เปลี่ยนเป็นสีน้ำเงินตามคำขอ */
+  background-color: #398fff; 
+  color: white;
+  align-self: flex-end;
+  border-bottom-right-radius: 6px;
+}
+
+.message.ai {
+  /* ปรับปรุง Contrast ให้อ่านง่ายขึ้น */
+  background-color: #E4E6EB; /* เปลี่ยนเป็นสีเทาที่เข้มขึ้น */
+  color: #050505; /* เปลี่ยนเป็นสีดำที่เข้มเกือบสนิท */
+  align-self: flex-start;
+  border-bottom-left-radius: 6px;
+  /* ยืนยันการจัดข้อความข้างในให้ชิดซ้ายเสมอ */
+}
+
+.loading-dots {
+  display: inline-block;
+  font-weight: bold;
+  animation: dots 1.4s infinite;
+}
+
+@keyframes dots {
+  0%, 20% { content: '.'; }
+  40% { content: '..'; }
+  60% { content: '...'; }
+}
+
+.chat-input-form {
+  display: flex;
+}
+
+.chat-input-form input {
+  flex-grow: 1;
+  padding: 1rem;
+  border: 1px solid #ced4da;
+  border-radius: 10px;
+  font-size: 1.05rem;
+  background-color: #f0f2f5; /* ทำให้กล่องพิมพ์เป็นสีเทาอ่อน */
+  border: none;
+}
+
+.chat-input-form button {
+  padding: 1rem 1.75rem;
+  margin-left: 0.75rem;
+  border: none;
+  /* เปลี่ยนสีปุ่มให้เข้ากัน */
+  background-color: #398fff; 
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.chat-input-form button:hover {
+  background-color: #1c7eff; /* สีเข้มขึ้นเมื่อเมาส์ชี้ */
+}
+
+.chat-input-form button:disabled {
+  background-color: #a9ceff;
+  cursor: not-allowed;
+}
+
